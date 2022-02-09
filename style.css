@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+
+}
+
+button {
+    background-color: white;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px;
+}
+
+button:hover {
+    color: #222;
+}
+
+button:focus {
+    outline: none;
+}
+.slider-container .action-buttons button {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
+}
+
+.slider-container .action-buttons .down-button {
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+}
+
+.slider-container .action-buttons .up-button {
+    transform: translateY(-100%);
+    border-bottom-left-radius: 5px;
+}
+
+/* MOBILE BUTTONS */
+
+.slider-container .action-buttons-mobile button {
+position: absolute;
+    top: 50%;
+    z-index: 100;
+}
+
+.slider-container .action-buttons .left-button {
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+}
+
+.slider-container .action-buttons .right-button {
+    transform: translateY(-100%);
+    border-bottom-left-radius: 5px;
+}
+
+.action-buttons-mobile {
+    transform: translateY(100%);
+}
+
+/* END MOBILE BUTTONS */
+
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.left-slide {
+    height: 100%;
+    width: 35%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform .5s ease-in-out;
+    color: white;
+}
+
+.left-slide > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-slide h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: -30px;
+}
+
+.right-slide {
+    height: 100%;
+    position: absolute;
+    left: 35%;
+    width: 65%;
+    transition: transform .5s ease-in-out;
+}
+
+
+
+.img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+}
+
+/*   LEFT SLIDE BACKGROUND COLOURS */
+
+.kyoto {
+    background-color: #767762;
+}
+
+.monument {
+    background-color: #a7655d;
+}
+
+.wudang {
+    background-color: #b06ff3;
+}
+
+.plitvice {
+    background-color: #738157;
+}
+
+/*    RIGHT SLIDE IMAGES */
+.kyoto-img {
+    background-image: url('images/kyoto.jpg');
+}
+
+.monument-img {
+    background-image: url('images/monument.jpg');
+}
+
+.wudang-img {
+    background-image: url('images/wudang.jpg');
+}
+
+.plitvice-img {
+    background-image: url('images/plitvice.jpg');
+}
+
+
+/*    RESPONSIVE!!! */
+
+@media screen and (max-width: 768px) {
+    .slider-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-slide {
+        position: relative;
+        height: 15%;
+        width: 100%;
+        order: 2;
+        display: flex;
+    }
+
+    .right-slide {
+        position: relative;
+        height: 85%;
+        width: 100%;
+        left: 0;
+        order: 1;
+    }
+
+    .action-buttons {
+        transform: translateY(100%);
+    }
+
+    .action-buttons-mobile {
+        transform: none;
+    }
+
+    .right-button {
+        right: 0%;
+    }
+
+    .left-button {
+        left: 0%;
+    }
+}
