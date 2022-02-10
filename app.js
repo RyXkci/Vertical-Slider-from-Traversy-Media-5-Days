@@ -8,6 +8,8 @@ const rightButton = document.querySelector('.right-button');
 const slidesLength = slideRight.querySelectorAll('div').length;
 const mediaQuery = window.matchMedia('(min-width: 768px)');
 
+
+
 let activeSlideIndex = 0;
 
 if (mediaQuery.matches) {
@@ -16,6 +18,9 @@ if (mediaQuery.matches) {
     slideLeft.style.width = `${slidesLength * 100}%`
     slideLeft.style.left = `-${(slidesLength - 1) * 100}vw`
 }
+
+//                      DESKTOP SLIDER                     //
+
 
 upButton.addEventListener('click', () => changeSlide('up'))
 downButton.addEventListener('click', () => changeSlide('down'))
@@ -41,6 +46,14 @@ const changeSlide = (direction) => {
     slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
 }
 
+//                     MOBILE SLIDER                       //
+
+
+const sliderHeight = sliderContainer.clientHeight;
+const mobileHeightPercentage = (sliderHeight * 15) / 100;
+
+console.log(mobileHeightPercentage)
+
 const changeSliderMobile = (direction) => {
     const sliderHeight = sliderContainer.clientWidth
     if (direction === 'right') {
@@ -55,6 +68,7 @@ const changeSliderMobile = (direction) => {
         }
     }
 
-    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
+    slideRight.style.transform = `translateY(-${activeSlideIndex * (sliderContainer.clientHeight - mobileHeightPercentage)}px)`
     slideLeft.style.transform = `translateX(${activeSlideIndex * sliderHeight}px)`
+    console.log(sliderContainer.clientHeight);
 }
